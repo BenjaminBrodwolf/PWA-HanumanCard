@@ -1,9 +1,9 @@
-const fcAmount = document.getElementById("fcStat")
-const correctAmount = document.getElementById("correctStat")
-const wrongAmount = document.getElementById("wrongStat")
-const view = document.getElementById("flashCard")
+const fcAmountDOM = document.getElementById("fcStat")
+const correctAmountDOM = document.getElementById("correctStat")
+const wrongAmountDOM = document.getElementById("wrongStat")
+const flashCardDOM = document.getElementById("flashCard")
 
-let correctCount = 0;
+let correctCount;
 let wrongList = []
 
 
@@ -16,14 +16,15 @@ const poses = [
 ]
 
 
-let randomPoses = shuffleArray(poses);
-let posesIndex = 0;
+let randomPoses;
+let posesIndex;
 
 const flashCard = pose => {
-    view.innerHTML = `
+    console.log(pose)
+    flashCardDOM.innerHTML = `
             <h5>Welche Pose ist das?</h5>
             <div class="fc" id="${pose}">
-                <img src="assets/img/${pose}.png">
+                <img src="assets/img/${pose}.png" alt="${pose}">
             </div>
 
             <div id="showAnswer" onclick="showAnswer()" style="display: block">
@@ -37,11 +38,11 @@ const flashCard = pose => {
                 <h4>Hast du es gewusst?</h4>
                 <div class="controls">
 
-                    <div class="correct" onclick="correctAnswer(${pose})">
+                    <div class="correct" onclick="correctAnswer('${pose}')">
                         <p> &#x2714;
                         </p>
                     </div>
-                    <div class="wrong" onclick="wrongAnswer(${pose})">
+                    <div class="wrong" onclick="wrongAnswer('${pose}')">
                         <p>&#10006;</p>
                     </div>
                 </div>
@@ -58,13 +59,14 @@ const showAnswer = () => {
 }
 
 const correctAnswer = pose => {
-    correctAmount.innerText = ++correctCount;
+    correctAmountDOM.innerText = ++correctCount;
     nextCard();
 }
 
 const wrongAnswer = pose => {
+    console.log(pose)
     wrongList.push(pose)
-    wrongAmount.innerText = wrongList.length;
+    wrongAmountDOM.innerText = wrongList.length;
     nextCard();
 }
 
@@ -74,17 +76,45 @@ const nextCard = () => {
         flashCard(randomPoses[posesIndex])
     } else {
         // ist jetzt alle einmal Durch
-        randomPoses = shuffleArray(wrongList)
-        wrongList = []
+        repeatLearning()
     }
 }
 
 const repeatLearning = () =>{
+    let result = `
+            <h5>Resultat</h5>
+            <p>
+                Du hast von insgesamt ${randomPoses.length} Fragen <br> 
+                <span style="color: #7dce90">&#x2714; ${correctCount} </span> richtig und 
+                 <span style="color: #dc7a6b">&#10006; ${wrongList.length} falsch.</span>
+             </p>
 
+            <div style="height: 50px" onclick="newStart()"> 
+                <h5>Alle nochmal wiederholen</h5>
+            </div>
+        `
+
+    if(wrongList.length > 0){
+        result += `
+           <div style="height: 50px"  onclick="newStart(wrongList)"> 
+                 <h5>Nur die Falschen wiederholen</h5>
+           </div>
+        `
+    }
+
+    flashCardDOM.innerHTML = result
 }
 
-const start = () => {
+const newStart = (flashCards = poses) => {
+    randomPoses = shuffleArray(flashCards);
+    wrongList = []
+    console.log(randomPoses)
+    correctCount = 0;
+    posesIndex = 0;
+    correctAmountDOM.innerText = 0;
+    wrongAmountDOM.innerText = 0;
+    fcAmountDOM.innerText = randomPoses.length;
+
     flashCard(randomPoses[0])
-    fcAmount.innerText = randomPoses.length;
 }
 
