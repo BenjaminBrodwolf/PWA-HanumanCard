@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TeacherTraining FlashCard</title>
+    <meta name="description" content="Hanuman Yoga Learning-Card Web App">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="./js/main.js"></script>
+
+
+    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="manifest" href="./manifest.json" crossorigin="use-credentials">
+
+
+    <meta name="apple-mobile-web-app-title" content="HanuCard">
+    <meta name="application-name" content="HanuCard">
+    <meta name="msapplication-TileColor" content="#74a5ae">
+    <meta name="theme-color" content="#74a5ae">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/utilis.js"></script>
+</head>
+
+<body>
+
+<div class="app">
+    <header>
+        <img src="assets/HanumanLOGO.svg" alt="Hanuman Yoga Logo">
+        <h1>Hanuman Card</h1>
+        <p>Hanuman Yoga Teacher Training FlashCard</p>
+
+    </header>
+    <main>
+
+        <div id="flashCard">
+<!--            <h5>Welche Pose ist das?</h5>-->
+<!--            <div class="fc" id="Balancierender_Krieger_I">-->
+<!--                <img src="assets/img/Balancierender_Krieger_I.png">-->
+<!--            </div>-->
+
+<!--            <div id="showAnswer" onclick="showAnswer()">-->
+<!--                <p>Klicke hier für die Kontroller</p>-->
+<!--            </div>-->
+
+<!--            <div id="hiddenAnswer" >-->
+<!--                <div class="answer">-->
+<!--                    <p>Balancierender Krieger I</p>-->
+<!--                </div>-->
+<!--                <h4>Hast du es gewusst?</h4>-->
+<!--                <div class="controls">-->
+
+<!--                    <div class="correct">-->
+<!--                        <p> &#x2714;-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                    <div class="wrong">-->
+<!--                        <p>&#10006;</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="stats">
+            <div class="questions-count"><span id="fcStat"> 0</span> FlashCards</div>
+            <div class="current-stats">
+                <p>
+                    <span style="color: #7dce90">&#x2714; <span id="correctStat"> 0</span> </span>
+                    /
+                    <span style="color: #dc7a6b">&#10006;<span id="wrongStat"> 0</span> </span>
+                </p>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script src="js/flashCard.js"></script>
+
+<script>
+    start();
+</script>
+
+
+
+
+</body>
+</html>
