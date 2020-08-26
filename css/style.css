@@ -3,13 +3,11 @@
     src: url('../assets/font/BrandonGrotesque-Light.ttf') format('truetype'); }
 
 * {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     box-sizing: border-box;
 }
-h5{
-    padding-top: 10px;
-}
+
 
 body {
     background: #B9CECF;
@@ -25,12 +23,15 @@ body {
 }
 
 header {
+    display: flex;
+
+
     font-family: "Brandon Grotesque Light", "Segoe Print", sans-serif;
     color: #ffffff;
     font-size: 4vmin;
 
     margin: 0px 0px 20px 0px;
-    text-align: center;
+    text-align: left;
     padding: 1rem;
     background: #74A5AE;
     width: 100%;
@@ -38,13 +39,23 @@ header {
 
 }
 header img{
-    width: 20vw;
+    width: 10vw;
     height: auto;
 
     max-width: 150px;
 }
+.headerText{
+    padding-left: 7px;
+}
+
 header p{
     font-weight: bold;
+}
+h1{
+
+}
+h5{
+    padding-top: 10px;
 }
 /*
 *******************************
@@ -52,6 +63,9 @@ header p{
 *******************************
 */
 #flashCard{
+    display: flex;
+    flex-flow: column;
+    height: 70vh;
     max-width: 600px;
     text-align: center;
     background: #FFF8EE;
@@ -60,9 +74,6 @@ header p{
     margin: 10px;
 }
 
-.fc {
-    border-radius: 2rem;
-}
 .fc img{
     width: 100%;
     height: auto;
@@ -93,30 +104,34 @@ header p{
 }
 
 .answer {
+    flex: 1;
     background-color: #7e8b96;
-    min-height: 50px;
+    min-height: 70px;
 }
 .answer p{
     color: #2d1f1f;
 }
 
 
-#showAnswer, #hiddenAnswer{
-    /*min-height: 20vw;*/
-}
 
 #showAnswer{
-    min-height: 50px;
+    flex-grow : 1;
 
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    margin: auto;
     width: 100%;
     background: #6fadde;
     border-radius: 0 0 1rem 1rem;
+}
+
+
+#hiddenAnswer{
+    height: 100%;
+
+    flex-flow: column;
+
+}
+
+.result{
+    width: 40vw;
 }
 
 /*
@@ -130,20 +145,21 @@ header p{
     -ms-user-select: none;
     user-select: none;
 }
+.controls {
+    color: white;
+    font-size: 3em;
+    cursor: pointer;
+}
 
 .controls div {
+    height: 70px;
     width: 50%;
     text-align: center;
-    padding: 25px 0;
     cursor: pointer;
     display: inline-block;
 }
 
-.controls {
-    color: white;
-    font-size: 6em;
-    cursor: pointer;
-}
+
 .correct {
     border-bottom-left-radius: 1.5rem;
     background-color: #7dce90;

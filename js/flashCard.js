@@ -27,7 +27,7 @@ const flashCard = pose => {
                 <img src="assets/img/${pose}.png" alt="${pose}">
             </div>
 
-            <div id="showAnswer" onclick="showAnswer()" style="display: block">
+            <div id="showAnswer" onclick="showAnswer()">
                 <p>Klicke hier für die Kontroller</p>
             </div>
 
@@ -55,7 +55,7 @@ const showAnswer = () => {
     const answer = document.getElementById("hiddenAnswer")
 
     x.style.display = "none"
-    answer.style.display = "block"
+    answer.style.display = "flex"
 }
 
 const correctAnswer = pose => {
@@ -82,6 +82,7 @@ const nextCard = () => {
 
 const repeatLearning = () =>{
     let result = `
+        <div class="result"> 
             <h5>Resultat</h5>
             <p>
                 Du hast von insgesamt ${randomPoses.length} Fragen <br> 
@@ -101,6 +102,7 @@ const repeatLearning = () =>{
            </div>
         `
     }
+    result += `</div>`
 
     flashCardDOM.innerHTML = result
 }
