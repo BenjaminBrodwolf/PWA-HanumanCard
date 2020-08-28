@@ -12,12 +12,13 @@
 
 
 body {
+
     background: #B9CECF;
     font-family: 'Merriweather', serif;
 }
 
 .app {
-    min-height: 100vh;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -34,7 +35,6 @@ header {
     color: #ffffff;
     font-size: 4vmin;
 
-    margin: 0px 0px 20px 0px;
     text-align: left;
     padding: 1rem;
     background: #74A5AE;
@@ -72,7 +72,7 @@ h5 {
 #flashCard {
     display: flex;
     flex-flow: column;
-    height: 70vh;
+
     max-width: 600px;
     text-align: center;
     background: #FFF8EE;
@@ -83,13 +83,9 @@ h5 {
 
 .fc img {
     width: 100%;
-    height: auto;
 }
 
-.fc_pose {
-    width: 80%;
-    background: aquamarine;
-}
+
 
 /*
 *******************************

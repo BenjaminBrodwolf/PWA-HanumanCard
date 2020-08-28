@@ -75,7 +75,6 @@ const nextCard = () => {
     if (posesIndex < randomPoses.length) {
         flashCard(randomPoses[posesIndex])
     } else {
-        // ist jetzt alle einmal Durch
         repeatLearning()
     }
 }
@@ -97,8 +96,8 @@ const repeatLearning = () =>{
 
     if(wrongList.length > 0){
         result += `
-           <div style="height: 50px"  onclick="newStart(wrongList)"> 
-                 <h5>Nur die Falschen wiederholen</h5>
+           <div onclick="newStart(wrongList)"> 
+                 <h5>Nicht gewusste wiederholen</h5>
            </div>
         `
     }
