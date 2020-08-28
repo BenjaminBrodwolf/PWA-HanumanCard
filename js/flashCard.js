@@ -82,7 +82,7 @@ const nextCard = () => {
 const repeatLearning = () =>{
     let result = `
         <div class="result"> 
-            <h5>Resultat</h5>
+            <h4>Dein Resultat</h4>
             <p>
                 Du hast von insgesamt ${randomPoses.length} Fragen <br> 
                 <span style="color: #7dce90">&#x2714; ${correctCount} </span> richtig und 
@@ -90,7 +90,7 @@ const repeatLearning = () =>{
              </p>
 
             <div onclick="newStart()"> 
-                <h4>Alle nochmal wiederholen </h4>
+                <h5 class="button">Alle nochmal wiederholen </h5>
             </div>
         `
 
@@ -98,7 +98,7 @@ const repeatLearning = () =>{
         result += `
             <p>oder</p>
            <div onclick="newStart(wrongList)"> 
-                 <h4>Nur die nicht gewusste wiederholen (Anzhl. ${wrongList.length})</h4>
+                 <h5 class="button">Nur die nicht gewusste wiederholen (Anzhl. ${wrongList.length})</h5>
            </div>
         `
     }
