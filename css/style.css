@@ -26,9 +26,9 @@ body {
 }
 
 header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    /*display: flex;*/
+    /*flex-direction: row;*/
+    /*justify-content: space-around;*/
 
 
     font-family: "Brandon Grotesque Light", "Segoe Print", sans-serif;
@@ -37,7 +37,7 @@ header {
 
     /*text-align: left;*/
     /*padding: 1rem;*/
-    /*background: #74A5AE;*/
+    background: #74A5AE;
     /*width: 100%;*/
 }
 
