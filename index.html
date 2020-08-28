@@ -30,7 +30,9 @@
 <body>
 
 <div class="header">
-<!--    <img src="assets/HanumanLOGO.svg" alt="Hanuman Yoga Logo">-->
+    <div>
+        <img src="assets/HanumanLOGO.svg" alt="Hanuman Yoga Logo">
+    </div>
     <div class="headerText">
         <h1>Hanuman Card</h1>
         <p>Hanuman Yoga Teacher Training FlashCard</p>
@@ -62,7 +64,7 @@
 
 
     // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
-    let vh = window.innerHeight ;
+    let vh = window.innerHeight;
     // Then we set the value in the --vh custom property to the root of the document
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 
