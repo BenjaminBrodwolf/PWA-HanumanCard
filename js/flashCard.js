@@ -89,7 +89,7 @@ const repeatLearning = () =>{
                  <span style="color: #dc7a6b">&#10006; ${wrongList.length} falsch.</span>
              </p>
 
-            <div style="height: 50px" onclick="newStart()"> 
+            <div onclick="newStart()"> 
                 <h5>Alle nochmal wiederholen</h5>
             </div>
         `

@@ -28,46 +28,51 @@
 </head>
 
 <body>
-<!--<iframe src="https://www.swissunihockey.ch/renderengine/render_wrapper.php?token=ca1db8d0-e391-11ea-ae5d-dd72b87f90ae" width="100%" height="800px" frameborder="0"></iframe>-->
+
+<div class="header">
+    <img src="assets/HanumanLOGO.svg" alt="Hanuman Yoga Logo">
+    <div class="headerText">
+        <h1>Hanuman Card</h1>
+        <p>Hanuman Yoga Teacher Training FlashCard</p>
+    </div>
+</div>
 
 
-<div class="app">
-    <header>
-        <img src="assets/HanumanLOGO.svg" alt="Hanuman Yoga Logo">
-        <div class="headerText">
-            <h1>Hanuman Card</h1>
-            <p>Hanuman Yoga Teacher Training FlashCard</p>
+<div id="flashCard">
+
+</div>
+
+<div class="footer">
+    <div class="stats">
+        <div class="questions-count"><span id="fcStat"> 0</span> FlashCards</div>
+        <div class="current-stats">
+            <p>
+                <span style="color: #7dce90">&#x2714; <span id="correctStat"> 0</span> </span>
+                /
+                <span style="color: #dc7a6b">&#10006;<span id="wrongStat"> 0</span> </span>
+            </p>
         </div>
-    </header>
-    <main>
-
-        <div id="flashCard">
-
-        </div>
-
-    </main>
-
-    <footer>
-        <div class="stats">
-            <div class="questions-count"><span id="fcStat"> 0</span> FlashCards</div>
-            <div class="current-stats">
-                <p>
-                    <span style="color: #7dce90">&#x2714; <span id="correctStat"> 0</span> </span>
-                    /
-                    <span style="color: #dc7a6b">&#10006;<span id="wrongStat"> 0</span> </span>
-                </p>
-            </div>
-        </div>
-    </footer>
+    </div>
 </div>
 
 <script src="js/flashCard.js"></script>
 
 <script>
     newStart();
+
+
+    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+    let vh = window.innerHeight * 0.01;
+    // Then we set the value in the --vh custom property to the root of the document
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+    // We listen to the resize event
+    window.addEventListener('resize', () => {
+        // We execute the same script as before
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    });
 </script>
-
-
 
 
 </body>
