@@ -28,19 +28,12 @@ body {
     background: #B9CECF;
     font-family: 'Merriweather', serif;
 
-
-    overflow: hidden;
-    height: 100%;
-    max-height: 100%;
+    height: var(--vh);
     /*height: 100vh; !* Use vh as a fallback for browsers that do not support Custom Properties *!*/
     /*height: calc(var(--vh, 1vh) * 100);*/
 }
 
 .header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-
 
     width: 100%;
     padding: 1rem;
@@ -55,7 +48,7 @@ body {
 
 .header img {
     width: 30px;
-    /*height: auto;*/
+    height: auto;
 
     /*max-width: 150px;*/
 }
