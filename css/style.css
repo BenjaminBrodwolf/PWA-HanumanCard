@@ -36,8 +36,6 @@ body {
 .header {
     float: left;
 
-
-
     text-align: center;
     width: 100%;
     padding: 2px 10px;
@@ -46,7 +44,7 @@ body {
 }
 
 .header img {
- float: left;
+    float: left;
 
     padding: 5px;
 
@@ -74,9 +72,13 @@ header p {
 h1 {
 
 }
-
+h4{
+    padding-top: 20px;
+}
 h5 {
     padding-top: 10px;
+    padding-bottom: 10px;
+
 }
 
 /*
@@ -85,6 +87,7 @@ h5 {
 *******************************
 */
 #flashCard {
+    width: 80%;
     display: flex;
     flex-flow: column;
 
@@ -93,13 +96,11 @@ h5 {
     background: #FFF8EE;
     border-radius: 1.5rem;
     box-shadow: -10px 0px 13px -7px rgba(0, 0, 0, 0.18), 10px 0px 13px -7px rgba(0, 0, 0, 0.18), 5px 5px 15px 5px rgba(0, 0, 0, 0.18);
-    margin: 10px;
 }
 
 .fc img {
     width: 100%;
 }
-
 
 
 /*
@@ -122,9 +123,8 @@ h5 {
 }
 
 .answer {
-    flex: 1;
+    /*flex: 1;*/
     background-color: #7e8b96;
-    /*min-height: 70px;*/
 }
 
 .answer p {
@@ -132,23 +132,29 @@ h5 {
 }
 
 #showAnswer {
-    flex-grow: 1;
-
-    width: 100%;
-    background: #6fadde;
-    border-radius: 0 0 1rem 1rem;
+    height: 0;
+    /*width: 100%;*/
+    /*background: #6fadde;*/
+    /*border-radius: 0 0 1rem 1rem;*/
 }
+#showAnswer p{
+    padding: 10px;
+    background: aquamarine;
+    margin: 20px;
+    border-radius: 2rem;
 
+}
 
 #hiddenAnswer {
     height: 100%;
 
-    flex-flow: column;
-
+    /*flex-flow: column;*/
 }
 
 .result {
-    width: 40vw;
+    /*width: 40vw;*/
+    padding: 10px;
+
 }
 
 /*
@@ -164,13 +170,14 @@ h5 {
 }
 
 .controls {
+
     color: white;
     font-size: 3em;
     cursor: pointer;
 }
 
 .controls div {
-    height: 70px;
+
     width: 50%;
     text-align: center;
     cursor: pointer;

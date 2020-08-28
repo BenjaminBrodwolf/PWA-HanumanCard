@@ -31,11 +31,11 @@ const flashCard = pose => {
                 <p>Klicke hier für die Kontroller</p>
             </div>
 
-            <div id="hiddenAnswer" style="display: none">
+            <div id="hiddenAnswer" style="visibility: hidden">
                 <div class="answer">
                     <p>${pose.replace(/_/g, " ")}</p>
                 </div>
-                <h4>Hast du es gewusst?</h4>
+                <h6>Hast du es gewusst?</h6>
                 <div class="controls">
 
                     <div class="correct" onclick="correctAnswer('${pose}')">
@@ -55,7 +55,7 @@ const showAnswer = () => {
     const answer = document.getElementById("hiddenAnswer")
 
     x.style.display = "none"
-    answer.style.display = "flex"
+    answer.style.visibility = "visible"
 }
 
 const correctAnswer = pose => {
@@ -86,18 +86,19 @@ const repeatLearning = () =>{
             <p>
                 Du hast von insgesamt ${randomPoses.length} Fragen <br> 
                 <span style="color: #7dce90">&#x2714; ${correctCount} </span> richtig und 
-                 <span style="color: #dc7a6b">&#10006; ${wrongList.length} falsch.</span>
+                 <span style="color: #dc7a6b">&#10006; ${wrongList.length} </span> falsch.
              </p>
 
             <div onclick="newStart()"> 
-                <h5>Alle nochmal wiederholen</h5>
+                <h4>Alle nochmal wiederholen </h4>
             </div>
         `
 
     if(wrongList.length > 0){
         result += `
+            <p>oder</p>
            <div onclick="newStart(wrongList)"> 
-                 <h5>Nicht gewusste wiederholen</h5>
+                 <h4>Nur die nicht gewusste wiederholen (Anzhl. ${wrongList.length})</h4>
            </div>
         `
     }
