@@ -6,8 +6,7 @@ const CACHE_NAME = 'static-cache-v1';
 // List of files to cache here.
 const FILES_TO_CACHE = [
     './',
-    './assets/img/',
-    './css/index.js',
+    './css/style.css',
     './index.html',
 ];
 

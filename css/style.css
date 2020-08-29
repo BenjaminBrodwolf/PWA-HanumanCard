@@ -50,8 +50,7 @@ body {
 
     width: 15%;
     height: auto;
-
-    /*max-width: 150px;*/
+    max-width: 120px;
 }
 
 .headerText {
@@ -61,8 +60,15 @@ body {
     font-family: "Brandon Grotesque Light", "Segoe Print", sans-serif;
     color: #ffffff;
     font-size: 4vw;
+
     text-align: left;
     padding-left: 7px;
+}
+
+@media screen and (min-width: 1200px) {
+    .headerText {
+        font-size: 40px;
+    }
 }
 
 header p {
@@ -110,7 +116,6 @@ h5 {
   Question/ Answer Styles
 *******************************
 */
-
 .question, .answer {
     padding: 8px 11px;
     -webkit-user-select: none;

@@ -3,6 +3,8 @@ const correctAmountDOM = document.getElementById("correctStat")
 const wrongAmountDOM = document.getElementById("wrongStat")
 const flashCardDOM = document.getElementById("flashCard")
 
+const imgFolder = "./chacheGenerate/public/img/"
+
 let correctCount;
 let wrongList = []
 
@@ -24,7 +26,7 @@ const flashCard = pose => {
     flashCardDOM.innerHTML = `
             <h5>Welche Pose ist das?</h5>
             <div class="fc" id="${pose}">
-                <img src="assets/img/${pose}.png" alt="${pose}">
+                <img src="${imgFolder}${pose}.png" alt="${pose}">
             </div>
 
             <div id="showAnswer" onclick="showAnswer()">
