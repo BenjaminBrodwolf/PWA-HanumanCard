@@ -7,9 +7,9 @@ let FILES_TO_CACHE = [
     // './',
     './assets/font/BrandonGrotesque-Light.ttf',
     './assets/hanucards.json',
-    './assets/HanumanLOGO.svg',
+    './assets/HanumanTeacher.svg',
     './css/style.css',
-    './js/flashCards.js',
+    // './js/flashCards.js',
     './js/utilis.js',
     './index.html'
 ];

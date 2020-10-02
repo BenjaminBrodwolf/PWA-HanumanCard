@@ -15,7 +15,7 @@ let randomPoses;
 let posesIndex;
 
 const flashCard = pose => {
-    console.log(pose)
+    // console.log(pose)
     flashCardDOM.innerHTML = `
             <h5>Welche Pose ist das?</h5>
             <div class="fc" id="${pose}">
