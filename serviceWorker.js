@@ -1,18 +1,29 @@
 'use strict';
-
 //  Update cache names any time any of the cached files change.
-const CACHE_NAME = 'static-cache-v1';
+const CACHE_NAME = 'static-cache-v0.1';
 
 // List of files to cache here.
-const FILES_TO_CACHE = [
-    './',
+let FILES_TO_CACHE = [
+    // './',
+    './assets/font/BrandonGrotesque-Light.ttf',
+    './assets/hanucards.json',
+    './assets/HanumanLOGO.svg',
     './css/style.css',
-    './index.html',
+    './js/flashCards.js',
+    './js/utilis.js',
+    './index.html'
 ];
 
 
 self.addEventListener('install', async installEvent=>{
     console.log('[ServiceWorker] Install');
+    console.log(installEvent);
+    const posesFile = (await (await fetch('posesPath.txt')).text()).split(",")
+    console.log(posesFile)
+        // .then(response => response.text())
+        // .then(text => console.log(text))
+    // FILES_TO_CACHE = [...FILES_TO_CACHE, ...posesFile]
+    console.log(FILES_TO_CACHE)
 
     const cache = await caches.open(CACHE_NAME);
     cache.addAll(FILES_TO_CACHE);

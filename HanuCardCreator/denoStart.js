@@ -1,13 +1,17 @@
 import {Application} from "https://deno.land/x/abc@v1.1.0/mod.ts";
 
 
-const imgFolder = '../assets/poses';
+
 const listOfFiles = []
-for await (const dirEntry of Deno.readDir(imgFolder)) {
+let posesPathTextFile = ""
+for await (const dirEntry of Deno.readDir("../assets/poses")) {
     listOfFiles.push(dirEntry.name);
+
+    posesPathTextFile += `./assets/poses/${dirEntry.name},`
 }
-console.log(listOfFiles.join(", "))
-await Deno.writeTextFile("./public/poseUrl.js", `const poseUrl = [ "${listOfFiles.join('", "')}"]`).then(() => console.log("File is written"))
+console.log(posesPathTextFile)
+await Deno.writeTextFile("./public/poseUrl.js", `const poseUrl = [ "${listOfFiles.join('", "')}"]`).then(() => console.log("PoseUrl File is written"))
+await Deno.writeTextFile("../posesPath.txt", posesPathTextFile).then(() => console.log("PosesPathTextFile is written"))
 
 // const cards = JSON.parse( await Deno.readTextFile("./public/hanucards.json") )
 

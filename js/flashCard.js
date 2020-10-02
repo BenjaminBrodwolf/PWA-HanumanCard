@@ -3,19 +3,12 @@ const correctAmountDOM = document.getElementById("correctStat")
 const wrongAmountDOM = document.getElementById("wrongStat")
 const flashCardDOM = document.getElementById("flashCard")
 
-const imgFolder = "./chacheGenerate/public/img/"
+const imgFolder = "./assets/poses/"
 
 let correctCount;
 let wrongList = []
 
-
-const poses = [
-    "Balancierender_Krieger_I",
-    "Chaturanga_Tiefes_Brett",
-    "Knielend",
-    "Umkehrter_Krieger",
-    "Virabadhrasana_II_Krieger_II"
-]
+let poses = []
 
 
 let randomPoses;
@@ -26,7 +19,7 @@ const flashCard = pose => {
     flashCardDOM.innerHTML = `
             <h5>Welche Pose ist das?</h5>
             <div class="fc" id="${pose}">
-                <img src="${imgFolder}${pose}.png" alt="${pose}">
+                <img src="${imgFolder}${pose.image}" alt="${pose.deutsch || pose.sanskrit}">
             </div>
 
             <div id="showAnswer" onclick="showAnswer()">
@@ -35,16 +28,16 @@ const flashCard = pose => {
 
             <div id="hiddenAnswer" style="visibility: hidden">
                 <div class="answer">
-                    <p>${pose.replace(/_/g, " ")}</p>
+                    <p>${pose.deutsch} | ${pose.sanskrit}</p>
                 </div>
                 <h6>Hast du es gewusst?</h6>
                 <div class="controls">
 
-                    <div class="correct" onclick="correctAnswer('${pose}')">
+                    <div class="correct" onclick="correctAnswer()">
                         <p> &#x2714;
                         </p>
                     </div>
-                    <div class="wrong" onclick="wrongAnswer('${pose}')">
+                    <div class="wrong" onclick="wrongAnswer('${pose.image}')">
                         <p>&#10006;</p>
                     </div>
                 </div>
@@ -60,12 +53,13 @@ const showAnswer = () => {
     answer.style.visibility = "visible"
 }
 
-const correctAnswer = pose => {
+const correctAnswer = () => {
     correctAmountDOM.innerText = ++correctCount;
     nextCard();
 }
-
+let test = {}
 const wrongAnswer = pose => {
+    test = pose
     console.log(pose)
     wrongList.push(pose)
     wrongAmountDOM.innerText = wrongList.length;
@@ -80,6 +74,7 @@ const nextCard = () => {
         repeatLearning()
     }
 }
+
 
 const repeatLearning = () =>{
     let result = `
@@ -99,7 +94,7 @@ const repeatLearning = () =>{
     if(wrongList.length > 0){
         result += `
             <p>oder</p>
-           <div onclick="newStart(wrongList)"> 
+           <div onclick="newStart(poses.filter(p => wrongList.includes(p.image)))"> 
                  <h5 class="button">Nur die nicht gewusste wiederholen (Anzhl. ${wrongList.length})</h5>
            </div>
         `
@@ -109,7 +104,9 @@ const repeatLearning = () =>{
     flashCardDOM.innerHTML = result
 }
 
+
 const newStart = (flashCards = poses) => {
+    console.log(poses)
     randomPoses = shuffleArray(flashCards);
     wrongList = []
     console.log(randomPoses)
@@ -122,3 +119,13 @@ const newStart = (flashCards = poses) => {
     flashCard(randomPoses[0])
 }
 
+// const getHanucards = async () =>
+
+
+const startApp = async () => {
+    const json = await (await fetch("./assets/hanucards.json")).json()
+    const hanucards = json.hanucards
+
+    poses = hanucards.filter(p => p.deutsch.length > 0 || p.sanskrit.length > 0)
+    newStart(poses)
+}
