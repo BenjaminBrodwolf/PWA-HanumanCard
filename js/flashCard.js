@@ -106,16 +106,13 @@ const repeatLearning = () =>{
 
 
 const newStart = (flashCards = poses) => {
-    console.log(poses)
     randomPoses = shuffleArray(flashCards);
     wrongList = []
-    console.log(randomPoses)
     correctCount = 0;
     posesIndex = 0;
     correctAmountDOM.innerText = 0;
     wrongAmountDOM.innerText = 0;
     fcAmountDOM.innerText = randomPoses.length;
-
     flashCard(randomPoses[0])
 }
 

@@ -7,7 +7,7 @@ let posesPathTextFile = ""
 for await (const dirEntry of Deno.readDir("../assets/poses")) {
     listOfFiles.push(dirEntry.name);
 
-    posesPathTextFile += `./assets/poses/${dirEntry.name},`
+    posesPathTextFile += `"./assets/poses/${dirEntry.name}",`
 }
 console.log(posesPathTextFile)
 await Deno.writeTextFile("./public/poseUrl.js", `const poseUrl = [ "${listOfFiles.join('", "')}"]`).then(() => console.log("PoseUrl File is written"))
