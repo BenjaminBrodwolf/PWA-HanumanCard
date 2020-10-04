@@ -76,7 +76,7 @@ const nextCard = () => {
 }
 
 
-const repeatLearning = () =>{
+const repeatLearning = () => {
     let result = `
         <div class="result"> 
             <h4>Dein Resultat</h4>
@@ -91,7 +91,7 @@ const repeatLearning = () =>{
             </div>
         `
 
-    if(wrongList.length > 0){
+    if (wrongList.length > 0) {
         result += `
             <p>oder</p>
            <div onclick="newStart(poses.filter(p => wrongList.includes(p.image)))"> 
@@ -116,13 +116,10 @@ const newStart = (flashCards = poses) => {
     flashCard(randomPoses[0])
 }
 
-// const getHanucards = async () =>
-
 
 const startApp = async () => {
-    const json = await (await fetch("./assets/hanucards.json")).json()
-    const hanucards = json.hanucards
+    // const json = await (await fetch("./assets/hanucards.json")).json()
 
-    poses = hanucards.filter(p => p.deutsch.length > 0 || p.sanskrit.length > 0)
+    poses = hanucardObjects.hanucards.filter(p => p.deutsch.length > 0 || p.sanskrit.length > 0)
     newStart(poses)
 }
