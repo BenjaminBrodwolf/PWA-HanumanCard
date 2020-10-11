@@ -27,4 +27,4 @@ app.post("/cards", async c => {
 }).static("/", "./public")
     .start({port: 8080});
 
-console.log(`server listening on http://localhost:8080/`);
+console.log(`server listening on http://localhost:8080/index.html`);
