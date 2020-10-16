@@ -18,7 +18,7 @@ const flashCard = ({image, deutsch, sanskrit}) => {
     flashCardDOM.innerHTML = `
             <h5>Welche Pose ist das?</h5>
             <div class="fc" id="${image}">
-                <img src="${imgFolder}${image}" width="800" height="450" alt="${deutsch || sanskrit}">
+                <img src="${imgFolder}${image}" width="360" height="420" alt="${deutsch || sanskrit}">
             </div>
 
             <div id="showAnswer" onclick="showAnswer()">

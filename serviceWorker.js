@@ -1,5 +1,5 @@
 //  Update cache names any time any of the cached files change.
-const CACHE_NAME = 'static-v1.0';
+const CACHE_NAME = 'static-v1.1';
 
 // List of files to cache here.
 let FILES_TO_CACHE = [
