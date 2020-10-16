@@ -14,12 +14,11 @@ let poses = []
 let randomPoses;
 let posesIndex;
 
-const flashCard = pose => {
-    // console.log(pose)
+const flashCard = ({image, deutsch, sanskrit}) => {
     flashCardDOM.innerHTML = `
             <h5>Welche Pose ist das?</h5>
-            <div class="fc" id="${pose}">
-                <img src="${imgFolder}${pose.image}" alt="${pose.deutsch || pose.sanskrit}">
+            <div class="fc" id="${image}">
+                <img src="${imgFolder}${image}" width="800" height="450" alt="${deutsch || sanskrit}">
             </div>
 
             <div id="showAnswer" onclick="showAnswer()">
@@ -28,7 +27,7 @@ const flashCard = pose => {
 
             <div id="hiddenAnswer" style="visibility: hidden">
                 <div class="answer">
-                    <p>${pose.deutsch} | ${pose.sanskrit}</p>
+                    <p>${deutsch} ${deutsch && sanskrit ? "|" : ""} ${sanskrit}</p>
                 </div>
                 <h6>Hast du es gewusst?</h6>
                 <div class="controls">
@@ -37,7 +36,7 @@ const flashCard = pose => {
                         <p> &#x2714;
                         </p>
                     </div>
-                    <div class="wrong" onclick="wrongAnswer('${pose.image}')">
+                    <div class="wrong" onclick="wrongAnswer('${image}')">
                         <p>&#10006;</p>
                     </div>
                 </div>
@@ -57,10 +56,10 @@ const correctAnswer = () => {
     correctAmountDOM.innerText = ++correctCount;
     nextCard();
 }
+
 let test = {}
 const wrongAnswer = pose => {
     test = pose
-    console.log(pose)
     wrongList.push(pose)
     wrongAmountDOM.innerText = wrongList.length;
     nextCard();
@@ -74,7 +73,6 @@ const nextCard = () => {
         repeatLearning()
     }
 }
-
 
 const repeatLearning = () => {
     let result = `
@@ -95,7 +93,7 @@ const repeatLearning = () => {
         result += `
             <p>oder</p>
            <div onclick="newStart(poses.filter(p => wrongList.includes(p.image)))"> 
-                 <h5 class="button">Nur die nicht gewusste wiederholen (Anzhl. ${wrongList.length})</h5>
+                 <h5 class="button">Nur die falschen wiederholen (${wrongList.length})</h5>
            </div>
         `
     }
