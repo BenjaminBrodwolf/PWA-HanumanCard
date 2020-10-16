@@ -52,8 +52,7 @@ self.addEventListener('fetch', event => {
     // return response;
 
 // event.respondWith(fromCache(event.request))
-
-})
+});
 
 const preCache = () =>
     caches.open(CACHE_NAME).then(
