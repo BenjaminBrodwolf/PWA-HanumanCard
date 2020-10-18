@@ -1,5 +1,5 @@
 //  Update cache names any time any of the cached files change.
-const CACHE_NAME = 'static-v1.1';
+const CACHE_NAME = 'static-v1.0.1';
 
 // List of files to cache here.
 let FILES_TO_CACHE = [
@@ -23,7 +23,6 @@ let FILES_TO_CACHE = [
 
 self.addEventListener('install', installEvent => {
     console.log('[ServiceWorker] Install');
-    console.log(installEvent);
     installEvent.waitUntil(preCache());
 });
 

@@ -22,7 +22,7 @@ const flashCard = ({image, deutsch, sanskrit}) => {
             </div>
 
             <div id="showAnswer" onclick="showAnswer()">
-                <p>Klicke hier für die Kontroller</p>
+                <p>Lösung anzeigen</p>
             </div>
 
             <div id="hiddenAnswer" style="visibility: hidden">
