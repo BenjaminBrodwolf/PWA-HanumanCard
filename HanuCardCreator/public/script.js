@@ -4,7 +4,6 @@ const poseCard = (poseImage, {deutsch, sanskrit}) => `
     <div class="card" id="${poseImage}">
         <h5>${poseImage}</h5>
         <img src="poses/${poseImage}" alt="${poseImage}">
-
         <label for="nameDeutsch">Pose Name:</label>
         <input name="nameDeutsch" value="${deutsch}">
         <br>
@@ -16,7 +15,6 @@ const poseCard = (poseImage, {deutsch, sanskrit}) => `
 const start = async () => {
     const json = await getHanucard()
     const hanucards = json.hanucards
-    console.log(hanucards)
 
     let result = ""
     await poseUrl.forEach(poseImage => {
@@ -45,8 +43,6 @@ const saveAll = async () => {
         })
     })
 
-    console.log(cards)
-
     const rawResponse = await fetch('/cards', {
         method: 'POST',
         headers: {
@@ -56,7 +52,6 @@ const saveAll = async () => {
         body: JSON.stringify(cards)
     });
     const content = await rawResponse.json();
-
     console.log(content);
 }
 

@@ -1,6 +1,7 @@
 const fcAmountDOM = document.getElementById("fcStat")
 const correctAmountDOM = document.getElementById("correctStat")
 const wrongAmountDOM = document.getElementById("wrongStat")
+const currentAmountDOM = document.getElementById("currenAmount")
 const flashCardDOM = document.getElementById("flashCard")
 
 const imgFolder = "./assets/poses/"
@@ -9,7 +10,6 @@ let correctCount;
 let wrongList = []
 
 let poses = []
-
 
 let randomPoses;
 let posesIndex;
@@ -66,6 +66,7 @@ const wrongAnswer = pose => {
 }
 
 const nextCard = () => {
+    currentAmountDOM.innerText = correctCount + wrongList.length
     posesIndex++
     if (posesIndex < randomPoses.length) {
         flashCard(randomPoses[posesIndex])
@@ -116,8 +117,6 @@ const newStart = (flashCards = poses) => {
 
 
 const startApp = async () => {
-    // const json = await (await fetch("./assets/hanucards.json")).json()
-
     poses = hanucardObjects.hanucards.filter(p => p.deutsch.length > 0 || p.sanskrit.length > 0)
     newStart(poses)
 }

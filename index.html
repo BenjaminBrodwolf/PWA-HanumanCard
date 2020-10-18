@@ -4,16 +4,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <title>TeacherTraining FlashCard</title>
-    <meta name="description" content="Hanuman Yoga Learning-Card Web App">
+    <meta name="description" content="Hanuman Yoga Learning-Card PWApp">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="icon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./icon/favicon-16x16.png">
 
-
-    <meta name="apple-mobile-web-app-title" content="HanuCard">
-    <meta name="application-name" content="HanuCard">
+    <meta name="apple-mobile-web-app-title" content="HanumanCard">
+    <meta name="application-name" content="HanumanCard">
     <meta name="msapplication-TileColor" content="#74a5ae">
     <meta name="theme-color" content="#74a5ae">
 
@@ -22,8 +21,8 @@
     <link rel="stylesheet" href="css/style.css">
 
     <link rel="manifest" href="./manifest.json" crossorigin="use-credentials">
-    <script src="./js/main.js"></script>
 
+    <script src="./js/main.js"></script>
     <script src="./js/utilis.js"></script>
     <script src="js/hanucards.js"></script>
 </head>
@@ -31,27 +30,28 @@
 <body>
 
 <div class="header">
-    <span style="font-size: 10px;color:white; position: absolute; top: 2px; right: 2px">1.0</span>
-        <img src="assets/HanumanTeacher.svg" width="110" height="140" alt="Hanuman Yoga Logo">
+    <span style="font-size: 10px;color:white; position: absolute; top: 2px; right: 2px">v1.0.7</span>
+    <img src="assets/HanumanTeacher.svg" width="110" height="140" alt="Hanuman Yoga Logo">
     <div class="headerText">
-        <h1>Hanuman Card</h1>
-        <p>Hanuman Yoga Teacher Training FlashCard</p>
+        <h1>Hanuman Yoga</h1>
+        <p>Teacher Training: Yoga-Pose FlashCard </p>
     </div>
 </div>
 
 
-<div id="flashCard">
-
-</div>
+<div id="flashCard"></div>
 
 <div class="footer">
     <div class="stats">
-        <div class="questions-count"><span id="fcStat"> 0</span> FlashCards</div>
+        <div class="questions-count"># <span id="fcStat"> 0</span> FlashCards</div>
         <div class="current-stats">
             <p>
                 <span style="color: #7dce90">&#x2714; <span id="correctStat"> 0</span> </span>
                 /
-                <span style="color: #dc7a6b">&#10006;<span id="wrongStat"> 0</span> </span>
+                <span style="color: #dc7a6b">&#10006; <span id="wrongStat"> 0</span> </span>
+                /
+                <span id="currenAmount">0</span>
+
             </p>
         </div>
     </div>
@@ -62,16 +62,11 @@
 <script>
     startApp();
 
-
-    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
     let vh = window.innerHeight;
-    // Then we set the value in the --vh custom property to the root of the document
     document.documentElement.style.setProperty('--vh', `${vh}px`);
 
-    // We listen to the resize event
     window.addEventListener('resize', () => {
-        // We execute the same script as before
-        let vh = window.innerHeight;
+        vh = window.innerHeight;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
     });
 </script>
