@@ -1,5 +1,5 @@
 //  Update cache names any time any of the cached files change.
-const CACHE_NAME = 'static-v1.0.8';
+const CACHE_NAME = 'static-v1.0.9';
 
 // List of files to cache here.
 let FILES_TO_CACHE = [
@@ -11,6 +11,7 @@ let FILES_TO_CACHE = [
     "js/flashCard.js",
     "js/main.js",
     "icon/maskable_icon.png",
+    "icon/maskable_icon_196x19",
     "icon/android-chrome-192x192.png",
     "icon/android-chrome-512x512.png",
     "icon/apple-touch-icon.png",
