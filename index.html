@@ -59,8 +59,6 @@
 
 <script src="js/flashCard.js"></script>
 
-<button id="btnAdd"></button>
-
 <script>
     startApp();
 
@@ -71,27 +69,6 @@
         vh = window.innerHeight;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
     });
-
-    const btnAdd = document.getElementById("btnAdd")
-
-
-
-    let deferredPromt;
-    window.addEventListener("beforeinstallprompt", e => {
-        e.preventDefault();
-        deferredPromt = e;
-        btnAdd.style.display = "block"
-    })
-
-    btnAdd.addEventListener("click", e =>{
-        deferredPromt.prompt();
-        deferredPromt.userChoice.then(choiceResult => {
-            if (choiceResult === "accepted"){
-                console.log("Use accepted")
-            }
-            deferredPromt = null;
-        })
-    })
 </script>
 
 

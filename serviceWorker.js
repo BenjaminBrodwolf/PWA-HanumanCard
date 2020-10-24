@@ -44,24 +44,9 @@ self.addEventListener('fetch', event => {
         })
     )
 
-    // const r = await event.respondWith(caches.match(event.request))
-    // console.log('[Service Worker] Fetching resource: ' + event.request.url);
-    // const response = r || await fetch(event.request)
-    // const cache = await caches.open(CACHE_NAME)
-    // console.log('[Service Worker] Caching new resource: ' + event.request.url);
-    // await cache.put(event.request, response.clone());
-    // return response;
-
-// event.respondWith(fromCache(event.request))
 });
 
 const preCache = () =>
     caches.open(CACHE_NAME).then(
         cache => cache.addAll(FILES_TO_CACHE)
     ).catch(e => console.error("PreCache ging was schief" + e))
-
-const fromCache = async request => {
-    const r = await caches.match(request)
-    console.log('[Service Worker] Fetching resource: ' + request.url);
-    return r || fetch(request)
-}
