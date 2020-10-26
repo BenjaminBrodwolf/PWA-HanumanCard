@@ -4,20 +4,12 @@ const path = Deno.cwd()
 console.log(path)
 
 const listOfFiles = []
-let posesPathTextFile = ""
 for await (const dirEntry of Deno.readDir("../assets/poses")) {
     listOfFiles.push(dirEntry.name);
-
-    posesPathTextFile += `"assets/poses/${dirEntry.name}",`
 }
-console.log(posesPathTextFile)
+
 await Deno.writeTextFile("./public/poseUrl.js", `const poseUrl = [ "${listOfFiles.join('", "')}"]`)
     .then(() => console.log("PoseUrl.js File is written for WebApp"))
-
-await Deno.writeTextFile("../posesPathForCaching.txt", posesPathTextFile)
-    .then(() => console.log("posesPathForCaching Text-File is written"))
-
-// const cards = JSON.parse( await Deno.readTextFile("./public/hanucards.js") )
 
 const app = new Application();
 
@@ -30,6 +22,11 @@ app.post("/cards", async c => {
 
     await Deno.writeTextFile("../js/hanucards.js", `const hanucardObjects =  ${JSON.stringify(body)}`)
         .then(() => console.log("Hanucard JS Object is written for WebApp"))
+
+
+    const posesPathTextedFiles = body["hanucards"].filter(e => e.deutsch && e.sanskrit).map(e => `"assets/poses/${e.image}"`).join(", ")
+    await Deno.writeTextFile("../posesPathForCaching.txt", posesPathTextedFiles)
+        .then(() => console.log("posesPathForCaching Text-File is written"))
 
     return body
 }).static("/", "./public")
