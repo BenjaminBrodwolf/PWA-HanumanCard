@@ -1,10 +1,10 @@
 # Hanuman Card Creator UI
 
-Simple Flash-Card creator UI
- <img src="HanumanCardCreator.png" width="450" title="InstaLoveBote StartScreen">
+### Simple Flash-Card creator UI
+<img src="HanumanCardCreator.png" width="700" title="Hanuman Card Creator UI Sceenshot">
  
-Flash-Card runs with [Deno](https://deno.land/).
-To start the Hanuman Card Creator UI: ```deno run --allow-read --allow-write --allow-net denoStart.js```
+#### The Hanuman Card Creator UI runs with [Deno](https://deno.land/).
+To start the application: ```deno run --allow-read --allow-write --allow-net denoStart.js```
 
 
 
